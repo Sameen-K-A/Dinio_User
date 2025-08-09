@@ -6,6 +6,7 @@ import CartPage from "@/pages/CartPage";
 import OrderPlaced from "@/pages/OrderPlaced";
 import UserLayout from "@/layout/userLayout";
 import Order from "@/pages/Order";
+import NotFoundPage from "@/components/others/Error404";
 
 export default function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ export default function AppRoutes() {
         <Route path={ROUTE.CART} element={<CartPage />} />
         <Route path={ROUTE.ORDER_PLACED} element={<OrderPlaced />} />
       </Route>
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

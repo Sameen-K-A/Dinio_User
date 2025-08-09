@@ -1,12 +1,22 @@
 import Navbar from "../components/Navbar";
 import MobileNavigation from "../components/MobileNavigation";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import type { INavItem } from "@/types/user";
 import { ROUTE } from "@/routes/router";
 import { Handbag, Menu, ShoppingCart } from "lucide-react";
 import CallWaiterBtn from "@/components/CallWaiterBtn";
+import ZeroState from "@/components/others/ZeroState";
 
 export default function UserLayout() {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const restaurantId = params.get("r");
+  const tableNumber = params.get("t");
+
+  if (!restaurantId || !restaurantId.length || !tableNumber || !tableNumber.length) {
+    return <ZeroState />;
+  };
+
   const navItems: INavItem[] = [
     {
       to: ROUTE.MENU,
