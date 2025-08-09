@@ -3,12 +3,12 @@ import React from "react";
 import { useCart } from "../contexts/cart-context";
 import CartTable from "@/components/CartTable";
 import { ChevronLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import { ROUTE } from "@/routes/router";
+import useAppNavigate from "@/hooks/useAppNavigate";
 
 const CartPage: React.FC = () => {
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
-  const navigate = useNavigate();
+  const appNavigate = useAppNavigate();
 
   return (
     <div className="relative pb-10 pt-6">
@@ -16,7 +16,7 @@ const CartPage: React.FC = () => {
         <div>
           <button
             className="p-2 mr-2 cursor-pointer rounded-md border bg-background hover:bg-muted transition-colors"
-            onClick={() => navigate(-1)}
+            onClick={() => appNavigate(ROUTE.MENU)}
             aria-label="Back"
           >
             <ChevronLeft size={18} />
@@ -52,7 +52,7 @@ const CartPage: React.FC = () => {
               className="mt-6 w-full md:w-fit bg-accent-foreground text-accent cursor-pointer hover:bg-accent-foreground/70 transition-colors font-semibold py-3 px-10 rounded-2xl text-lg tracking-wide"
               disabled={cart.length === 0}
               onClick={() => {
-                navigate(ROUTE.ORDER_PLACED);
+                appNavigate(ROUTE.ORDER_PLACED);
                 clearCart();
               }}
             >

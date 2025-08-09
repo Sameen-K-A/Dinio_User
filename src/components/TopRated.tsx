@@ -9,10 +9,7 @@ interface TopRatedProps {
 const TopRated: React.FC<TopRatedProps> = ({ foods, onAdd }) => {
   return (
     <section className="mb-6">
-      <div className="flex items-center justify-between px-1">
-        <h2 className="text-lg font-semibold">Top Rated</h2>
-        <button className="text-primary text-sm font-medium hover:underline">View all</button>
-      </div>
+      <h2 className="text-lg font-semibold">Top Rated</h2>
       <div className="flex gap-2 overflow-x-auto py-2 custom-scrollbar">
         {foods.map((food) => (
           <div

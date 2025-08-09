@@ -1,10 +1,10 @@
 import Lottie from "lottie-react";
-import { useNavigate } from "react-router-dom";
 import preparingFood from "@/assets/lotties/PreparingFood.json";
 import { ROUTE } from "@/routes/router";
+import useAppNavigate from "@/hooks/useAppNavigate";
 
 export default function OrderPlaced() {
-  const navigate = useNavigate();
+  const appNavigate = useAppNavigate();
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[70dvh] md:min-h-[90dvh] max-w-xl mx-auto text-center">
@@ -26,8 +26,8 @@ export default function OrderPlaced() {
       <br />
 
       <button
-        className="px-10 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-all"
-        onClick={() => navigate(ROUTE.MENU)}
+        className="px-10 py-3 cursor-pointer rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-all"
+        onClick={() => appNavigate(ROUTE.MENU)}
       >
         Browse More Items
       </button>
