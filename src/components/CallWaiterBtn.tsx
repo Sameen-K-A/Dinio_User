@@ -17,7 +17,7 @@ export default function CallWaiterBtn() {
       <PopoverTrigger asChild>
         <button
           onClick={() => setOpen(true)}
-          className="fixed z-50 bottom-18 right-4 md:bottom-6 md:right-6 bg-accent-foreground cursor-pointer text-accent rounded-full p-4 flex items-center gap-2 hover:bg-primary/70 transition-colors"
+          className="fixed z-50 bottom-18 border border-background right-4 md:bottom-6 md:right-6 bg-accent-foreground cursor-pointer text-accent rounded-full p-4 flex items-center gap-2 hover:bg-primary/70 transition-colors"
           aria-label="Call Waiter"
         >
           <PhoneCall size={18} strokeWidth={1.5} />

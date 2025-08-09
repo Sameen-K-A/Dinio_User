@@ -57,7 +57,7 @@ export default function CartTable({ cart, removeFromCart, updateQuantity }: ICar
                   <input
                     type="text"
                     value={item.quantity}
-                    className="w-20 text-center border rounded-sm bg-background text-base font-semibold text-primary px-2 py-1 focus:outline-none shadow-none"
+                    className="w-15 text-center border rounded-sm bg-background text-base font-semibold text-primary px-2 py-1 focus:outline-none shadow-none"
                     readOnly
                   />
                   <button

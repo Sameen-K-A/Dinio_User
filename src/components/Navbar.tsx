@@ -18,7 +18,7 @@ export default function Navbar({ navItems }: INavbarProps) {
 
   return (
     <nav className="flex items-center justify-between px-4 md:px-6 py-4 bg-background md:border-b sticky top-0 z-40">
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 cursor-pointer" onClick={() => appNavigate(ROUTE.MENU)}>
         <img src="/svgs/logo.svg" alt="Logo" className="h-6 logo-img" />
       </div>
 
