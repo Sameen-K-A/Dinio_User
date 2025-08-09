@@ -25,6 +25,8 @@ const CartPage: React.FC = () => {
   const allowLocation = () => {
     locationPermission.current = true;
     setLocationDialogOpen(false);
+    appNavigate(ROUTE.ORDER_PLACED);
+    clearCart();
   };
 
   const denyLocation = () => {
