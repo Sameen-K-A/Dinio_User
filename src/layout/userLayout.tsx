@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import type { INavItem } from "@/types/user";
 import { ROUTE } from "@/routes/router";
 import { Handbag, Menu, ShoppingCart } from "lucide-react";
+import CallWaiterBtn from "@/components/CallWaiterBtn";
 
 export default function UserLayout() {
   const navItems: INavItem[] = [
@@ -27,9 +28,10 @@ export default function UserLayout() {
   return (
     <div className="min-h-[100dvh] bg-background">
       <Navbar navItems={navItems} />
-      <main className="flex-1 w-full max-w-8xl mx-auto px-4 pb-20">
+      <main className="flex-1 w-full max-w-8xl mx-auto px-4 pb-30 md:pb-20">
         <Outlet />
       </main>
+      <CallWaiterBtn />
       <div className="md:hidden">
         <MobileNavigation navItems={navItems} />
       </div>

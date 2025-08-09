@@ -4,6 +4,7 @@ import { useCart } from "../contexts/cart-context";
 import CartTable from "@/components/CartTable";
 import { ChevronLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { ROUTE } from "@/routes/router";
 
 const CartPage: React.FC = () => {
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
@@ -50,6 +51,10 @@ const CartPage: React.FC = () => {
             <button
               className="mt-6 w-full md:w-fit bg-accent-foreground text-accent cursor-pointer hover:bg-accent-foreground/70 transition-colors font-semibold py-3 px-10 rounded-2xl text-lg tracking-wide"
               disabled={cart.length === 0}
+              onClick={() => {
+                navigate(ROUTE.ORDER_PLACED);
+                clearCart();
+              }}
             >
               Place Order
             </button>
