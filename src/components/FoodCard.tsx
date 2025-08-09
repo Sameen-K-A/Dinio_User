@@ -27,7 +27,7 @@ export default function FoodCard({ food, onAdd }: FoodCardProps) {
         <div className="flex items-center justify-between mt-2">
           <span className="font-bold text-lg">₹{food.amount.toFixed(2)}</span>
           <button
-            className="flex items-center gap-1 px-3 py-1 rounded-full border bg-accent-foreground text-accent text-sm font-medium hover:bg-accent-foreground/70 transition"
+            className="flex items-center gap-1 px-3 py-1 rounded-full cursor-pointer border bg-accent-foreground text-accent text-sm font-medium hover:bg-accent-foreground/70 transition"
             onClick={onAdd}
           >
             <span className="text-lg leading-none">+</span> Add

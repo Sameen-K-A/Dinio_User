@@ -11,6 +11,8 @@ interface CartContextType {
   removeFromCart: (foodId: string) => void;
   updateQuantity: (foodId: string, quantity: number) => void;
   clearCart: () => void;
+  cartPing: boolean;
+  triggerCartPing: () => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -23,15 +25,23 @@ export const useCart = () => {
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [cartPing, setCartPing] = useState(false);
+
+  const triggerCartPing = () => {
+    setCartPing(true);
+    setTimeout(() => setCartPing(false), 500);
+  };
 
   const addToCart = (item: IFood) => {
     setCart((prev) => {
       const found = prev.find((i) => i.foodId === item.foodId);
       if (found) {
+        triggerCartPing();
         return prev.map((i) =>
           i.foodId === item.foodId ? { ...i, quantity: i.quantity + 1 } : i
         );
       }
+      triggerCartPing();
       return [...prev, { ...item, quantity: 1 }];
     });
   };
@@ -51,7 +61,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const clearCart = () => setCart([]);
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, cartPing, triggerCartPing }}>
       {children}
     </CartContext.Provider>
   );

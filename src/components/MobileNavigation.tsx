@@ -11,7 +11,7 @@ interface IMobileNavigationProps {
 
 export default function MobileNavigation({ navItems }: IMobileNavigationProps) {
   const location = useLocation();
-  const { cart } = useCart();
+  const { cart, cartPing } = useCart();
   const appNavigate = useAppNavigate();
 
   const isCartPage = location.pathname === ROUTE.CART;
@@ -20,7 +20,7 @@ export default function MobileNavigation({ navItems }: IMobileNavigationProps) {
     <nav className="fixed z-50 bottom-0 w-full bg-muted flex justify-around items-center gap-2 p-2 px-4 border-t">
       {cart.length > 0 && !isCartPage ? (
         <button
-          className="w-full flex items-center justify-center gap-2 bg-accent-foreground text-accent hover:bg-accent-foreground/70 transition-colors font-semibold rounded-2xl py-2.5 px-4 text-base shadow-lg"
+          className={`w-full flex items-center justify-center gap-2 bg-accent-foreground text-accent hover:bg-accent-foreground/70 transition-all font-semibold rounded-2xl py-2.5 px-4 text-base shadow-lg ${cartPing && 'animate-ping-once'}`}
           onClick={() => appNavigate(ROUTE.CART)}
         >
           <ShoppingCart size={18} />

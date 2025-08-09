@@ -12,7 +12,7 @@ interface INavbarProps {
 
 export default function Navbar({ navItems }: INavbarProps) {
   const location = useLocation();
-  const { cart } = useCart();
+  const { cart, cartPing } = useCart();
   const isCartPage = location.pathname === ROUTE.CART;
   const appNavigate = useAppNavigate();
 
@@ -26,7 +26,7 @@ export default function Navbar({ navItems }: INavbarProps) {
         <div className="hidden md:flex gap-2 items-center">
           {cart.length > 0 && !isCartPage ? (
             <button
-              className="flex items-center gap-2 bg-accent-foreground text-accent cursor-pointer font-semibold rounded-lg px-4 py-2 text-base shadow-lg"
+              className={`flex items-center gap-2 bg-accent-foreground text-accent cursor-pointer font-semibold rounded-lg px-4 py-2 text-base shadow-lg transition-transform ${cartPing ? 'animate-ping-once' : ''}`}
               onClick={() => appNavigate(ROUTE.CART)}
             >
               <ShoppingCart size={18} />

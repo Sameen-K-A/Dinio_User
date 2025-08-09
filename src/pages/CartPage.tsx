@@ -1,14 +1,36 @@
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useCart } from "../contexts/cart-context";
 import CartTable from "@/components/CartTable";
 import { ChevronLeft } from "lucide-react";
 import { ROUTE } from "@/routes/router";
 import useAppNavigate from "@/hooks/useAppNavigate";
+import LocationPermissionModal from "@/components/LocationDialog";
 
 const CartPage: React.FC = () => {
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
+  const [locationDialogOpen, setLocationDialogOpen] = useState(false);
+  const locationPermission = useRef<boolean>(false);
   const appNavigate = useAppNavigate();
+
+  const handleCheckout = () => {
+    if (!locationPermission.current) {
+      setLocationDialogOpen(true);
+    } else {
+      appNavigate(ROUTE.ORDER_PLACED);
+      clearCart();
+    }
+  }
+
+  const allowLocation = () => {
+    locationPermission.current = true;
+    setLocationDialogOpen(false);
+  };
+
+  const denyLocation = () => {
+    locationPermission.current = false;
+    setLocationDialogOpen(false);
+  };
 
   return (
     <div className="relative pb-10 pt-6">
@@ -51,16 +73,20 @@ const CartPage: React.FC = () => {
             <button
               className="mt-6 w-full md:w-fit bg-accent-foreground text-accent cursor-pointer hover:bg-accent-foreground/70 transition-colors font-semibold py-3 px-10 rounded-2xl text-lg tracking-wide"
               disabled={cart.length === 0}
-              onClick={() => {
-                appNavigate(ROUTE.ORDER_PLACED);
-                clearCart();
-              }}
+              onClick={handleCheckout}
             >
               Place Order
             </button>
           </div>
         )
       }
+      <LocationPermissionModal
+        open={locationDialogOpen}
+        onOpenChange={setLocationDialogOpen}
+        onAllowOnce={allowLocation}
+        onAllowAlways={allowLocation}
+        onDeny={denyLocation}
+      />
     </div >
   );
 };
