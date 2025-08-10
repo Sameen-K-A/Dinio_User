@@ -111,10 +111,7 @@ export default function Home() {
 
 
   return (
-    <div
-      className="relative w-full h-[100dvh] bg-black text-white overflow-hidden overscroll-contain"
-      style={{ overscrollBehaviorY: "contain" }}
-    >
+    <div className="relative w-full h-[100dvh] bg-black text-white overflow-hidden overscroll-contain">
       <Navbar onNavigate={handleNavigate} />
       <SocialIcons />
       <AnimatePresence mode="wait">
