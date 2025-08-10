@@ -6,6 +6,7 @@ import { ROUTE } from "@/routes/router";
 import { Handbag, Menu, ShoppingCart } from "lucide-react";
 import CallWaiterBtn from "@/components/CallWaiterBtn";
 import ZeroState from "@/components/others/ZeroState";
+import { foodsByRestaurant } from "@/constants/foods";
 
 export default function UserLayout() {
   const location = useLocation();
@@ -13,7 +14,7 @@ export default function UserLayout() {
   const restaurantId = params.get("r");
   const tableNumber = params.get("t");
 
-  if (!restaurantId || !restaurantId.length || !tableNumber || !tableNumber.length) {
+  if (!restaurantId || !restaurantId.length || !tableNumber || !tableNumber.length || !foodsByRestaurant[restaurantId]) {
     return <ZeroState />;
   };
 

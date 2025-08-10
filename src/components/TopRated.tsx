@@ -28,7 +28,7 @@ const TopRated: React.FC<TopRatedProps> = ({ foods, onAdd }) => {
               {food.name}
             </div>
             <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-              <span>₹{food.amount.toFixed(2)}</span>
+              <span className="font-semibold">₹{food.amount.toFixed(2)}</span>
               <span>|</span>
               <span className="flex items-center gap-0">
                 <svg
