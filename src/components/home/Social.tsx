@@ -3,6 +3,10 @@ import { FaYoutube, FaLinkedin } from 'react-icons/fa';
 import { RiInstagramFill } from 'react-icons/ri';
 
 export default function SocialIcons() {
+  const youtubeUrl = import.meta.env.VITE_YOUTUBE;
+  const instagramUrl = import.meta.env.VITE_INSTAGRAM;
+  const linkedinUrl = import.meta.env.VITE_LINKEDIN;
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -12,7 +16,7 @@ export default function SocialIcons() {
     >
       <div className="flex flex-col space-y-4">
         <a
-          href="https://www.youtube.com/@Dinio-in"
+          href={youtubeUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-gray-300 transition-colors duration-300"
@@ -21,7 +25,7 @@ export default function SocialIcons() {
           <FaYoutube className="w-5 h-5 md:w-6 md:h-6" />
         </a>
         <a
-          href="https://www.instagram.com/dinio.in/"
+          href={instagramUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-gray-300 transition-colors duration-300"
@@ -30,7 +34,7 @@ export default function SocialIcons() {
           <RiInstagramFill className="w-5 h-5 md:w-6 md:h-6" />
         </a>
         <a
-          href="https://www.linkedin.com/company/dinio-in/"
+          href={linkedinUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-gray-300 transition-colors duration-300"

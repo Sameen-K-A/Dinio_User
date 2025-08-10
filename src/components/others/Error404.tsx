@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import { ROUTE } from "@/routes/router";
 
 export default function NotFoundPage() {
+  const youtubeUrl = import.meta.env.VITE_YOUTUBE;
+  const instagramUrl = import.meta.env.VITE_INSTAGRAM;
+  const linkedinUrl = import.meta.env.VITE_LINKEDIN;
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black px-4 text-center">
       <div className="flex flex-col items-center justify-center overflow-y-auto py-15">
@@ -29,16 +33,7 @@ export default function NotFoundPage() {
 
       <div className="flex space-x-4 fixed bottom-0 pb-5 pt-2 left-1/2 transform -translate-x-1/2 bg-black w-full justify-center">
         <a
-          href="https://www.instagram.com/dinio.in/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white hover:text-gray-300 transition-colors duration-300"
-          aria-label="Instagram"
-        >
-          <RiInstagramFill className="w-5 h-5 md:w-6 md:h-6" />
-        </a>
-        <a
-          href="https://www.youtube.com/@Dinio-in"
+          href={youtubeUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-gray-300 transition-colors duration-300"
@@ -47,7 +42,16 @@ export default function NotFoundPage() {
           <FaYoutube className="w-5 h-5 md:w-6 md:h-6" />
         </a>
         <a
-          href="https://www.linkedin.com/company/dinio-in/"
+          href={instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:text-gray-300 transition-colors duration-300"
+          aria-label="Instagram"
+        >
+          <RiInstagramFill className="w-5 h-5 md:w-6 md:h-6" />
+        </a>
+        <a
+          href={linkedinUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-gray-300 transition-colors duration-300"
