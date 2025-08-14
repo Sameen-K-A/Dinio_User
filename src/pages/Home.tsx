@@ -7,8 +7,9 @@ import WorksSection from "@/components/home/HowWorks";
 import ContactSection from "@/components/home/Contact";
 import ContactForm from "@/components/home/ContactForm";
 import ContactCombined from "@/components/home/ContactCombined";
+import Description from "@/components/home/Description";
 
-type Section = 'home' | 'works' | 'contact' | 'form';
+type Section = 'home' | 'description' | 'works' | 'contact' | 'form';
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState<Section>('home');
@@ -29,8 +30,8 @@ export default function Home() {
 
       const isMobile = window.innerWidth < 768;
       const sections: Section[] = isMobile
-        ? ['home', 'works', 'contact', 'form']
-        : ['home', 'works', 'contact'];
+        ? ['home', 'description', 'works', 'contact', 'form']
+        : ['home', 'description', 'works', 'contact'];
 
       const index = sections.indexOf(currentSection);
       let nextSection: Section | null = null;
@@ -65,8 +66,8 @@ export default function Home() {
       if (Math.abs(deltaY) > 50) {
         const isMobile = window.innerWidth < 768;
         const sections: Section[] = isMobile
-          ? ['home', 'works', 'contact', 'form']
-          : ['home', 'works', 'contact'];
+          ? ['home', 'description', 'works', 'contact', 'form']
+          : ['home', 'description', 'works', 'contact'];
 
         const index = sections.indexOf(currentSection);
         let nextSection: Section | null = null;
@@ -126,6 +127,7 @@ export default function Home() {
         >
           {currentSection === 'home' && <HomeSection />}
           {currentSection === 'works' && <WorksSection />}
+          {currentSection === 'description' && <Description />}
           {currentSection === 'contact' && (
             <>
               <div className="block md:hidden">
