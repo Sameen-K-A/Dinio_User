@@ -4,4 +4,5 @@ export const ROUTE = {
   CART: '/cart',
   ORDERS: '/orders',
   ORDER_PLACED: '/order-placed',
+  NOT_FOUND: '*',
 };
