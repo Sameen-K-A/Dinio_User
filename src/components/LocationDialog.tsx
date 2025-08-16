@@ -19,7 +19,7 @@ export default function LocationPermissionModal({
 }: LocationPermissionModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-sm rounded-2xl border border-muted-foreground/50 bg-muted p-4" showCloseButton={false}>
+      <DialogContent className="sm:max-w-sm rounded-2xl border border-muted-foreground/50 bg-muted p-4" showCloseButton={false}>
 
         <div className="mb-4 flex items-center justify-center">
           <div className="p-3 z-10 items-center justify-center rounded-full bg-blue-500">
