@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
+import { Menu } from 'lucide-react';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 interface NavbarProps {
-  onNavigate: (section: 'home' | 'works' | 'contact') => void;
+  onNavigate: (section: 'home' | 'what' | 'works' | 'contact') => void;
 }
 
 export default function Navbar({ onNavigate }: NavbarProps) {
@@ -20,8 +22,13 @@ export default function Navbar({ onNavigate }: NavbarProps) {
           <img src="/svgs/logo.svg" alt="Logo" className="h-4 md:h-6 w-auto" />
         </button>
 
-
-        <div className="flex space-x-4 md:space-x-10">
+        <div className="md:flex space-x-4 md:space-x-10 hidden">
+          <button
+            onClick={() => onNavigate('what')}
+            className="text-sm md:text-base cursor-pointer font-medium hover:text-gray-300 transition-transform duration-200 active:scale-80"
+          >
+            What is Dinio
+          </button>
           <button
             onClick={() => onNavigate('works')}
             className="text-sm md:text-base cursor-pointer font-medium hover:text-gray-300 transition-transform duration-200 active:scale-80"
@@ -34,6 +41,34 @@ export default function Navbar({ onNavigate }: NavbarProps) {
           >
             Contact
           </button>
+        </div>
+
+        <div className='block md:hidden'>
+          <DropdownMenu >
+            <DropdownMenuTrigger asChild>
+              <Menu className='cursor-pointer' />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="mr-4 mt-2 w-56 rounded-xl bg-[#191919] text-white backdrop-blur-sm border border-white/10">
+              <DropdownMenuItem
+                className="focus:bg-muted/10 rounded-lg overflow-hidden focus:text-white p-3 cursor-pointer"
+                onClick={() => onNavigate('what')}
+              >
+                What is Dinio
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => onNavigate('works')}
+                className="focus:bg-muted/10 rounded-lg overflow-hidden focus:text-white p-3 cursor-pointer"
+              >
+                How Dinio Works
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => onNavigate('contact')}
+                className="focus:bg-muted/10 rounded-lg overflow-hidden focus:text-white p-3 cursor-pointer"
+              >
+                Contact
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </motion.nav>
