@@ -29,7 +29,7 @@ export default function Menu() {
   return (
     <>
 
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center pt-10 md:pt-0">
         <h3 className="font-bold text-3xl">Hi, Welcome</h3>
         <ThemeToggleButton />
       </div>
@@ -47,9 +47,7 @@ export default function Menu() {
         onSelect={onCategoryChange}
       />
 
-      <div className="font-semibold text-lg mb-2 mt-6">All</div>
-
-      <div className="grid gap-2 grid-cols-[repeat(auto-fill,minmax(280px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(350px,1fr))]">
+      <div className="grid gap-2 grid-cols-[repeat(auto-fill,minmax(280px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(350px,1fr))] mt-5">
         {filteredFoods.map((food: IFood) => (
           <FoodCard
             key={food.foodId}

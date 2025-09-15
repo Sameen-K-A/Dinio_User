@@ -12,7 +12,7 @@ export default function CategoryChips({
   onSelect,
 }: CategoryChipsProps) {
   return (
-    <div className="flex gap-1.5 overflow-x-auto py-2 mb-4 custom-scrollbar">
+    <div className="flex gap-1 overflow-x-auto py-2 mb-4 custom-scrollbar">
       {categories.map((cat) => (
         <button
           key={cat.catId}
