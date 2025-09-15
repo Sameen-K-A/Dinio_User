@@ -2,10 +2,9 @@ import type { IFood } from "@/types/user";
 
 interface FoodCardProps {
   food: IFood;
-  onAdd?: () => void;
 }
 
-export default function FoodCard({ food, onAdd }: FoodCardProps) {
+export default function FoodCard({ food }: FoodCardProps) {
   return (
     <div className="flex items-center bg-muted/50 rounded-2xl border p-2">
       <img
@@ -24,14 +23,8 @@ export default function FoodCard({ food, onAdd }: FoodCardProps) {
           <span className="font-medium">{food.rating.toFixed(1)}</span>
         </div>
 
-        <div className="flex items-center justify-between mt-2">
+        <div className="mt-2">
           <span className="font-semibold">₹{food.amount.toFixed(2)}</span>
-          <button
-            className="flex items-center gap-1 px-3 py-1 rounded-full cursor-pointer border bg-accent-foreground text-accent text-sm font-medium hover:bg-accent-foreground/70 transition"
-            onClick={onAdd}
-          >
-            <span className="text-lg leading-none">+</span> Add
-          </button>
         </div>
       </div>
     </div>

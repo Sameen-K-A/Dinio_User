@@ -4,11 +4,8 @@ import { Suspense, lazy } from "react";
 import LoadingPage from "@/components/others/LoadingPage";
 
 import Home from "@/pages/Home";
+import GeneralLayout from "@/layout/general";
 const Menu = lazy(() => import("@/pages/Menu"));
-const CartPage = lazy(() => import("@/pages/CartPage"));
-const OrderPlaced = lazy(() => import("@/pages/OrderPlaced"));
-const UserLayout = lazy(() => import("@/layout/userLayout"));
-const Order = lazy(() => import("@/pages/Order"));
 const NotFoundPage = lazy(() => import("@/components/others/Error404"));
 
 export default function AppRoutes() {
@@ -19,7 +16,7 @@ export default function AppRoutes() {
       <Route
         element={
           <Suspense fallback={<LoadingPage />}>
-            <UserLayout />
+            <GeneralLayout />
           </Suspense>
         }
       >
@@ -30,36 +27,16 @@ export default function AppRoutes() {
             </Suspense>
           }
         />
-        <Route path={ROUTE.ORDERS}
+
+        <Route path={ROUTE.NOT_FOUND}
           element={
             <Suspense fallback={<LoadingPage />}>
-              <Order />
-            </Suspense>
-          }
-        />
-        <Route path={ROUTE.CART}
-          element={
-            <Suspense fallback={<LoadingPage />}>
-              <CartPage />
-            </Suspense>
-          }
-        />
-        <Route path={ROUTE.ORDER_PLACED}
-          element={
-            <Suspense fallback={<LoadingPage />}>
-              <OrderPlaced />
+              <NotFoundPage />
             </Suspense>
           }
         />
       </Route>
 
-      <Route path={ROUTE.NOT_FOUND}
-        element={
-          <Suspense fallback={<LoadingPage />}>
-            <NotFoundPage />
-          </Suspense>
-        }
-      />
     </Routes>
   );
 }

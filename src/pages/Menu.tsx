@@ -5,7 +5,6 @@ import MenuHeader from "../components/MenuHeader";
 import TopRated from "../components/TopRated";
 import CategoryChips from "../components/CategoryChips";
 import type { IFood } from "@/types/user";
-import { useCart } from "../contexts/cart-context";
 import { useState } from "react";
 
 function useQuery() {
@@ -16,7 +15,6 @@ export default function Menu() {
   const query = useQuery();
   const restId = query.get("r");
   const allFoods = restId ? foodsByRestaurant[restId] || [] : [];
-  const { addToCart } = useCart();
   const topRatedFoods = [...allFoods].sort((a, b) => b.rating - a.rating).slice(0, 4);
   const categories = ["All", "Food items", "Drinks", "Dessert"];
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
@@ -25,7 +23,7 @@ export default function Menu() {
   return (
     <div className="py-4">
       <MenuHeader />
-      <TopRated foods={topRatedFoods} onAdd={addToCart} />
+      <TopRated foods={topRatedFoods} />
       <CategoryChips categories={categories} selected={selectedCategory} onSelect={setSelectedCategory} />
       <div className="font-semibold text-lg mb-2 mt-6">All</div>
       <div className="grid gap-2 grid-cols-[repeat(auto-fill,minmax(280px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(350px,1fr))]">
@@ -33,7 +31,6 @@ export default function Menu() {
           <FoodCard
             key={food.foodId}
             food={food}
-            onAdd={() => addToCart(food)}
           />
         ))}
       </div>

@@ -3,10 +3,9 @@ import type { IFood } from "@/types/user";
 
 interface TopRatedProps {
   foods: IFood[];
-  onAdd: (food: IFood) => void;
 }
 
-const TopRated: React.FC<TopRatedProps> = ({ foods, onAdd }) => {
+const TopRated: React.FC<TopRatedProps> = ({ foods }) => {
   return (
     <section className="mb-6">
       <h2 className="text-lg font-semibold">Top Rated</h2>
@@ -44,13 +43,6 @@ const TopRated: React.FC<TopRatedProps> = ({ foods, onAdd }) => {
                 </span>
               </span>
             </div>
-
-            <button
-              className="flex items-center cursor-pointer gap-1 px-3 py-1 rounded-full border bg-accent-foreground text-accent text-sm font-medium hover:bg-accent-foreground/70 transition"
-              onClick={() => onAdd(food)}
-            >
-              <span className="text-lg leading-none">+</span> Add
-            </button>
           </div>
         ))}
       </div>
