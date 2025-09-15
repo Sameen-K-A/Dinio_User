@@ -4,8 +4,10 @@ import FoodCard from "../components/FoodCard";
 import MenuHeader from "../components/MenuHeader";
 import TopRated from "../components/TopRated";
 import CategoryChips from "../components/CategoryChips";
-import type { IFood } from "@/types/user";
+import type { ICategory, IFood } from "@/types/general";
 import { useState } from "react";
+import { ThemeToggleButton } from "@/components/ui/ThemeToggleButton";
+import { mockCategories } from "@/constants/category";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -15,17 +17,38 @@ export default function Menu() {
   const query = useQuery();
   const restId = query.get("r");
   const allFoods = restId ? foodsByRestaurant[restId] || [] : [];
-  const topRatedFoods = [...allFoods].sort((a, b) => b.rating - a.rating).slice(0, 4);
-  const categories = ["All", "Food items", "Drinks", "Dessert"];
+  const categories = mockCategories;
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+  const [topRatedFoods] = useState([...allFoods].sort(() => Math.random() - 0.5).slice(0, 4));
   const filteredFoods = allFoods;
 
+  const onCategoryChange = (cat: ICategory) => {
+    setSelectedCategory(cat)
+  };
+
   return (
-    <div className="py-4">
+    <>
+
+      <div className="flex justify-between items-center">
+        <h3 className="font-bold text-3xl">Hi, Welcome</h3>
+        <ThemeToggleButton />
+      </div>
+      <h6 className="mb-6">Let's find your best food Order and Eat.</h6>
+
       <MenuHeader />
-      <TopRated foods={topRatedFoods} />
-      <CategoryChips categories={categories} selected={selectedCategory} onSelect={setSelectedCategory} />
+
+      <TopRated
+        foods={topRatedFoods}
+      />
+
+      <CategoryChips
+        categories={categories}
+        selected={selectedCategory}
+        onSelect={onCategoryChange}
+      />
+
       <div className="font-semibold text-lg mb-2 mt-6">All</div>
+
       <div className="grid gap-2 grid-cols-[repeat(auto-fill,minmax(280px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(350px,1fr))]">
         {filteredFoods.map((food: IFood) => (
           <FoodCard
@@ -34,6 +57,6 @@ export default function Menu() {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 };

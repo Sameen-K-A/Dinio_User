@@ -9,7 +9,7 @@ export default function LoadingPage() {
             <img
               src="/svgs/logo.svg"
               alt="Dinio Logo"
-              className="h-[1em] inline-block"
+              className="h-[1em] inline-block logo-img"
             />
           </h1>
           <Loader className="animate-spin mt-5 mx-auto" size={25} />

@@ -12,8 +12,8 @@ export default function GeneralLayout() {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-background container mx-auto">
-      <main className="flex-1 w-full max-w-8xl mx-auto px-4 pb-30 md:pb-20">
+    <div className="min-h-[100dvh] container mx-auto">
+      <main className="p-4 md:p-8">
         <Outlet />
       </main>
     </div>
