@@ -6,7 +6,7 @@ interface FoodCardProps {
 
 export default function FoodCard({ food }: FoodCardProps) {
   return (
-    <div className="flex items-center bg-card dark:border cursor-default overflow-hidden rounded-2xl hover:shadow-lg shadow-muted-foreground/5 transition-all duration-300 p-4">
+    <div className="flex items-center bg-card border border-transparent dark:border-border cursor-default overflow-hidden rounded-2xl hover:shadow-lg shadow-muted-foreground/5 transition-all duration-300 p-4">
       <div className="flex-1 space-y-1">
         <p className="font-semibold text-base line-clamp-1">{food.name}</p>
         <p className="text-xs text-muted-foreground line-clamp-2">{food.description}</p>

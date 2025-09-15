@@ -7,13 +7,13 @@ interface TopRatedProps {
 
 const TopRated: React.FC<TopRatedProps> = ({ foods }) => {
   return (
-    <section>
+    <section className="pt-3">
       <h2 className="text-lg font-semibold mb-2">Top Rated</h2>
       <div className="flex gap-2 overflow-x-auto pb-6 custom-scrollbar">
         {foods.map((food) => (
           <div
             key={food.foodId}
-            className="bg-card cursor-default dark:border rounded-2xl hover:shadow-lg shadow-muted-foreground/5 transition-all duration-300 p-2 py-5 flex-shrink-0 flex flex-col items-center relative w-[180px]"
+            className="bg-card cursor-default border border-transparent dark:border-border rounded-2xl hover:shadow-lg shadow-muted-foreground/5 transition-all duration-300 p-2 py-5 flex-shrink-0 flex flex-col items-center relative w-[180px]"
           >
             <img
               src={food.image}
