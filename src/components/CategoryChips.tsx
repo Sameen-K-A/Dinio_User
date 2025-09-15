@@ -16,9 +16,9 @@ export default function CategoryChips({
       {categories.map((cat) => (
         <button
           key={cat.catId}
-          className={`px-4 py-1.5 cursor-pointer rounded-full font-medium text-sm transition-colors whitespace-nowrap ${selected === cat
-            ? "bg-primary text-accent"
-            : "bg-card hover:bg-muted-foreground/10 dark:border"
+          className={`px-4 py-1.5 cursor-pointer rounded-full border border-transparent font-medium text-sm transition-colors whitespace-nowrap ${selected === cat
+            ? "bg-primary text-white"
+            : "bg-card hover:bg-muted-foreground/10 dark:border-border"
             }`}
           onClick={() => onSelect(cat)}
           type="button"

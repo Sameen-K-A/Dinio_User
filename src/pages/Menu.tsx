@@ -30,7 +30,7 @@ export default function Menu() {
     <>
 
       <div className="flex justify-between items-center pt-10 md:pt-0">
-        <h3 className="font-bold text-3xl">Hi, Welcome</h3>
+        <h3 className="font-bold text-3xl text-primary">Hi, Welcome</h3>
         <ThemeToggleButton />
       </div>
       <h6 className="mb-6">Let's find your best food Order and Eat.</h6>

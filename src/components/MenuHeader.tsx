@@ -8,7 +8,9 @@ export default function MenuHeader() {
         placeholder="Search food..."
         className="w-full max-w-lg border rounded-lg px-3 py-2 h-10 text-sm bg-card focus:outline-none"
       />
-      <button className="p-2.5 rounded-lg border bg-card cursor-pointer hover:bg-muted transition-colors"><ListFilter size={18} /></button>
+      <button className="p-2.5 rounded-lg border bg-primary cursor-pointer hover:bg-primary/70 transition-colors">
+        <ListFilter size={18} className="text-white" />
+      </button>
     </div>
   );
 };
