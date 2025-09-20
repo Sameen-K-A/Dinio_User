@@ -8,6 +8,7 @@ import type { ICategory, IFood } from "@/types/general";
 import { useState } from "react";
 import { ThemeToggleButton } from "@/components/ui/ThemeToggleButton";
 import { mockCategories } from "@/constants/category";
+import FoodDetailsDrawer from "@/components/FoodDetailsDrawer";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -49,8 +50,9 @@ export default function Menu() {
 
       <div className="grid gap-2 grid-cols-[repeat(auto-fill,minmax(280px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(350px,1fr))] mt-5">
         {filteredFoods.map((food: IFood) => (
-          <FoodCard
+          <FoodDetailsDrawer
             key={food.foodId}
+            trigger={<FoodCard food={food} />}
             food={food}
           />
         ))}

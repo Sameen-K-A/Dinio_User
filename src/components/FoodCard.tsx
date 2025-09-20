@@ -8,16 +8,16 @@ interface FoodCardProps {
 
 export default function FoodCard({ food }: FoodCardProps) {
   return (
-    <div className="flex items-center bg-card border border-transparent dark:border-border cursor-default overflow-hidden rounded-2xl hover:shadow-lg shadow-muted-foreground/5 transition-all duration-300 p-4">
+    <div className="flex items-center bg-card border border-transparent dark:border-border cursor-pointer overflow-hidden rounded-2xl hover:shadow-lg shadow-muted-foreground/5 transition-all duration-300 p-4">
       <div className="flex-1 space-y-1">
-        <p className="font-semibold text-base line-clamp-1">{food.name}</p>
-        <p className="text-xs text-muted-foreground line-clamp-1">{food.description}</p>
-        <p className="text-xs text-muted-foreground flex gap-2 items-center">
+        <p className="font-semibold text-base line-clamp-1 text-left">{food.name}</p>
+        <p className="text-xs text-muted-foreground line-clamp-1 text-left">{food.description}</p>
+        <p className="text-xs text-muted-foreground flex gap-2 items-center text-left">
           <FaStar className="text-amber-500" />
           {getAverageRating(food.reviews).toFixed(1)}/5 based on {food.reviews.length} reviews
         </p>
 
-        <div className="mt-2">
+        <div className="mt-2 text-left">
           <span className="font-semibold">₹{food.amount.toFixed(2)}</span>
         </div>
       </div>
