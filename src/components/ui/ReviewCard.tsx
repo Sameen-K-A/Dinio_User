@@ -9,7 +9,7 @@ interface ReviewCardProps {
 
 export function ReviewCard({ review, className }: ReviewCardProps) {
   return (
-    <div className={cn("p-4 rounded-lg", className)}>
+    <div className={cn("p-4 rounded-lg bg-card", className)}>
       <div className="flex items-start justify-between mb-2">
         <div className="flex-1">
           <h4 className="font-medium text-sm">{review.name}</h4>
