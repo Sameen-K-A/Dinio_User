@@ -1,4 +1,6 @@
 import type { IFood } from "@/types/general";
+import { FaStar } from "react-icons/fa";
+import { getAverageRating } from "@/lib/utils";
 
 interface FoodCardProps {
   food: IFood;
@@ -9,7 +11,11 @@ export default function FoodCard({ food }: FoodCardProps) {
     <div className="flex items-center bg-card border border-transparent dark:border-border cursor-default overflow-hidden rounded-2xl hover:shadow-lg shadow-muted-foreground/5 transition-all duration-300 p-4">
       <div className="flex-1 space-y-1">
         <p className="font-semibold text-base line-clamp-1">{food.name}</p>
-        <p className="text-xs text-muted-foreground line-clamp-2">{food.description}</p>
+        <p className="text-xs text-muted-foreground line-clamp-1">{food.description}</p>
+        <p className="text-xs text-muted-foreground flex gap-2 items-center">
+          <FaStar className="text-amber-500" />
+          {getAverageRating(food.reviews).toFixed(1)}/5 based on {food.reviews.length} reviews
+        </p>
 
         <div className="mt-2">
           <span className="font-semibold">₹{food.amount.toFixed(2)}</span>

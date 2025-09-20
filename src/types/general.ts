@@ -9,4 +9,11 @@ export interface IFood {
   description: string;
   category: ICategory;
   amount: number;
+  reviews: IReview[];
+};
+
+export interface IReview {
+  name: string;
+  rating: number;
+  review: string;
 };

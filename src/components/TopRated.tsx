@@ -1,5 +1,7 @@
 import React from "react";
 import type { IFood } from "@/types/general";
+import { FaStar } from "react-icons/fa";
+import { getAverageRating } from "@/lib/utils";
 
 interface TopRatedProps {
   foods: IFood[];
@@ -26,7 +28,11 @@ const TopRated: React.FC<TopRatedProps> = ({ foods }) => {
             <div className="font-semibold text-base text-center mt-1 line-clamp-1">
               {food.name}
             </div>
-            <div className="text-sm text-muted-foreground">
+            <p className="text-xs text-muted-foreground flex gap-1 items-center">
+              <FaStar className="text-amber-500" />
+              {getAverageRating(food.reviews).toFixed(1)}
+            </p>
+            <div className="text-sm text-muted-foreground mt-1">
               <span className="font-semibold">₹{food.amount.toFixed(2)}</span>
             </div>
           </div>

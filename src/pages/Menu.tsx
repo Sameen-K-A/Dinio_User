@@ -19,7 +19,7 @@ export default function Menu() {
   const allFoods = restId ? foodsByRestaurant[restId] || [] : [];
   const categories = mockCategories;
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-  const [topRatedFoods] = useState([...allFoods].sort(() => Math.random() - 0.5).slice(0, 4));
+  const [topRatedFoods] = useState([...allFoods].sort(() => Math.random() - 0.5).slice(0, 5));
   const filteredFoods = allFoods;
 
   const onCategoryChange = (cat: ICategory) => {
