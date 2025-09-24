@@ -37,7 +37,7 @@ export default function FoodDetailsDrawer({ food, trigger }: IFoodDetailsDrawerP
               </Badge>
             </div>
 
-            <div className="flex flex-col md:flex-row w-full gap-6">
+            <div className="flex flex-col md:flex-row w-full gap-6 max-w-7xl mx-auto">
               <div className="space-y-6 w-full">
                 <div>
                   <h2 className="text-2xl font-bold mb-2">{food.name}</h2>
@@ -76,7 +76,7 @@ export default function FoodDetailsDrawer({ food, trigger }: IFoodDetailsDrawerP
                 )}
 
                 {food.reviews.length === 0 && (
-                  <div className="text-center py-8 text-muted-foreground">
+                  <div className="text-center h-full flex flex-col items-center justify-center py-8 text-muted-foreground bg-card w-full rounded-2xl">
                     <p>No reviews yet</p>
                     <p className="text-sm">Be the first to review this item!</p>
                   </div>

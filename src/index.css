@@ -157,3 +157,8 @@ body {
   font-family: 'Inter', sans-serif;
   overscroll-behavior-y: contain;
 }
+
+[data-slot="drawer-trigger"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
