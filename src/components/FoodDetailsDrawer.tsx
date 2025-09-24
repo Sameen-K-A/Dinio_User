@@ -6,6 +6,7 @@ import { Badge } from "./ui/badge";
 import { StarRating } from "./ui/Star_rating";
 import { ReviewCard } from "./ui/ReviewCard";
 import { RatingBreakdown } from "./ui/Rating_breakdown";
+import RatingForm from "./others/RatingForm";
 
 interface IFoodDetailsDrawerProps {
   trigger: JSX.Element;
@@ -59,6 +60,8 @@ export default function FoodDetailsDrawer({ food, trigger }: IFoodDetailsDrawerP
                     <RatingBreakdown distribution={ratingDistribution} />
                   </div>
                 )}
+
+                <RatingForm />
               </div>
 
               <div className="space-y-6 w-full">
@@ -76,7 +79,7 @@ export default function FoodDetailsDrawer({ food, trigger }: IFoodDetailsDrawerP
                 )}
 
                 {food.reviews.length === 0 && (
-                  <div className="text-center h-full flex flex-col items-center justify-center py-8 text-muted-foreground bg-card w-full rounded-2xl">
+                  <div className="text-center h-full max-h-[28rem] flex flex-col items-center justify-center py-8 text-muted-foreground bg-card w-full rounded-2xl">
                     <p>No reviews yet</p>
                     <p className="text-sm">Be the first to review this item!</p>
                   </div>
