@@ -9,10 +9,6 @@ export default function WorksSection() {
     {
       title: "2. View the Menu Instantly",
       description: "The menu opens right on your phone — no app, no sign-up, just one tap."
-    },
-    {
-      title: "3. Place Your Order",
-      description: "Select what you want and send your order directly to the kitchen. That’s it!"
     }
   ];
 

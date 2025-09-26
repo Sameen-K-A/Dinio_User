@@ -10,11 +10,15 @@ export default function Description() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-lg leading-9 text-center"
         >
-          <span className="opacity-80 font-extralight">For restaurants in Kerala and India who want to{" "}</span>
-          <span className="font-semibold">improve service speed, reduce errors, and increase customer satisfaction</span>,
-          <span className="opacity-80 font-extralight"> our </span>
-          <span className="font-semibold">E-menu platform offers a digital, contactless, and customizable ordering solution that is affordable, easy to use</span>,
-          <span className="opacity-80 font-extralight"> and localized for Indian customers — unlike expensive foreign POS systems or fragmented local solutions.</span>
+          <span className="font-semibold">A smarter menu for Indian restaurants — customizable, contactless, and affordable.</span>
+          <span className="opacity-80 font-extralight"> Our </span>
+          <span className="font-semibold">digital menu platform</span>
+          <span className="opacity-80 font-extralight"> empowers restaurants to </span>
+          <span className="font-semibold"> instantly update their offerings for festivals, special events, or daily changes</span>
+          <span className="opacity-80 font-extralight"> while giving customers a </span>
+          <span className="font-semibold"> seamless browsing experience. No printing costs, no delays — just a modern, flexible, and localized solution</span>
+          <span className="opacity-80 font-extralight"> designed for</span>
+          <span className="font-semibold"> India's food culture.</span>
         </motion.div>
       </div>
     </div>
