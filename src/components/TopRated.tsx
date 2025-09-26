@@ -18,7 +18,12 @@ const TopRated: React.FC<TopRatedProps> = ({ foods }) => {
             key={food.foodId}
             food={food}
             trigger={
-              <div className="bg-card cursor-pointer border border-transparent dark:border-border rounded-2xl hover:shadow-lg shadow-muted-foreground/5 transition-all duration-300 p-2 py-5 flex-shrink-0 flex flex-col items-center relative w-[180px]">
+              <div className="bg-card cursor-pointer overflow-hidden border border-transparent dark:border-border rounded-2xl hover:shadow-lg shadow-muted-foreground/5 transition-all duration-300 p-2 py-5 flex-shrink-0 flex flex-col items-center relative w-[180px]">
+                {food.isSpecial && (
+                  <div className="absolute top-2.5 -left-5 bg-red-500 text-primary-foreground font-medium text-[8px] px-6 py-0.5 -rotate-45">
+                    {food.isSpecial && <span>Special</span>}
+                  </div>
+                )}
                 <img
                   src={food.image}
                   alt={food.name}
@@ -34,7 +39,7 @@ const TopRated: React.FC<TopRatedProps> = ({ foods }) => {
                   <FaStar className="text-amber-500" />
                   {getAverageRating(food.reviews).toFixed(1)}
                 </p>
-                <div className="text-sm text-muted-foreground mt-1">
+                <div className="text-sm mt-1">
                   <span className="font-semibold">₹{food.amount.toFixed(2)}</span>
                 </div>
               </div>

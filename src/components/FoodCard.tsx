@@ -8,8 +8,13 @@ interface FoodCardProps {
 
 export default function FoodCard({ food }: FoodCardProps) {
   return (
-    <div className="flex items-center bg-card border border-transparent dark:border-border cursor-pointer overflow-hidden rounded-2xl hover:shadow-lg shadow-muted-foreground/5 transition-all duration-300 p-4">
-      <div className="flex-1 space-y-1">
+    <div className="flex items-center bg-card relative border border-transparent dark:border-border cursor-pointer overflow-hidden rounded-2xl hover:shadow-lg shadow-muted-foreground/5 transition-all duration-300 p-4">
+      {food.isSpecial && (
+        <div className="absolute top-2 -left-6 bg-red-500 text-primary-foreground font-medium text-[8px] px-6 py-0.5 -rotate-45">
+          {food.isSpecial && <span>Special</span>}
+        </div>
+      )}
+      <div className="flex-1 space-y-1 ml-1">
         <p className="font-semibold text-base line-clamp-1 text-left">{food.name}</p>
         <p className="text-xs text-muted-foreground line-clamp-1 text-left">{food.description}</p>
         <p className="text-xs text-muted-foreground flex gap-2 items-center text-left">

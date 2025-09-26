@@ -6,6 +6,7 @@ export interface IFood {
   foodId: string;
   image: string;
   name: string;
+  isSpecial: boolean;
   description: string;
   category: ICategory;
   amount: number;

@@ -29,7 +29,6 @@ export default function Menu() {
 
   return (
     <>
-
       <div className="flex justify-between items-center pt-10 md:pt-0">
         <h3 className="font-bold text-3xl text-primary">Hi, Welcome</h3>
         <ThemeToggleButton />

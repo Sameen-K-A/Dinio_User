@@ -61,6 +61,8 @@ export default function FoodDetailsDrawer({ food, trigger }: IFoodDetailsDrawerP
                   </div>
                 )}
 
+                <div className="border-t py-2" />
+
                 <RatingForm />
               </div>
 
